@@ -12,7 +12,4 @@ resource "aws_instance" "this" {
     Name = "${var.project_name}-${var.environment}-server"
   }
 }
-resource "aws_key_pair" "generated" {
-  key_name   = "terra-automate-key"
-  public_key = file("terra-automate-key.pub")
-}
+
