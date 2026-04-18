@@ -41,6 +41,8 @@ module "ec2" {
   instance_name      = local.instance_name
   environment        = local.environment
   project_name       = var.project_name
+  instance_count     = local.current.instance_count
+  common_tags        = local.common_tags
 }
 
 # --- S3 Module ---
