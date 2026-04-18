@@ -5,7 +5,7 @@ resource "aws_instance" "this" {
   subnet_id              = var.subnet_id
   vpc_security_group_ids = var.security_group_ids
 
-  key_name = var.key_name
+  key_name = aws_key_pair.this.key_name
 
   associate_public_ip_address = true
 
@@ -24,3 +24,7 @@ resource "aws_instance" "this" {
   ) 
 }
 
+resource "aws_key_pair" "this" {
+  key_name   = "${var.env}-terra-automate-key"
+  public_key = file(var.key_name)
+}

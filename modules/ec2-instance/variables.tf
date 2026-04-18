@@ -18,3 +18,13 @@ variable "common_tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "env" {
+  description = "Environment name (from terraform.workspace)"
+  type        = string
+}
+
+variable "key_name" {
+  description = "Path to the SSH public key file"
+  type        = string
+}
