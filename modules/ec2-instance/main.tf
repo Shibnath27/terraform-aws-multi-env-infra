@@ -8,8 +8,13 @@ resource "aws_instance" "this" {
 
   associate_public_ip_address = true
 
+   root_block_device {
+    volume_size = 10
+    volume_type = "gp3"
+  }
+  
   tags = {
-    Name = "${var.project_name}-${var.environment}-server"
+    Name = "${var.project_name}-${var.environment}-server-${count.index + 1}"
   }
 }
 
