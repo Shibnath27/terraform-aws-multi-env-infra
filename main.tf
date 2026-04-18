@@ -33,15 +33,15 @@ module "sg" {
 module "ec2" {
   source = "./modules/ec2-instance"
 
+  environment        = local.environment
+  instance_count     = local.current.instance_count
   ami_id             = data.aws_ami.amazon_linux.id
   instance_type      = var.instance_type
   subnet_id          = module.vpc.subnet_id
   security_group_ids = [module.sg.sg_id]
   key_name           = var.key_name
   instance_name      = local.instance_name
-  environment        = local.environment
   project_name       = var.project_name
-  instance_count     = local.current.instance_count
   common_tags        = local.common_tags
 }
 
