@@ -12,9 +12,9 @@ resource "aws_instance" "this" {
     volume_size = 10
     volume_type = "gp3"
   }
-  
-  tags = {
+
+  tags = merge(var.common_tags, {
     Name = "${var.project_name}-${var.environment}-server-${count.index + 1}"
-  }
+  })
 }
 
