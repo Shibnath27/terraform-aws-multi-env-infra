@@ -28,23 +28,29 @@ This project is the **final capstone of my Terraform journey**, where I built a 
 
 ```
 terraweek-capstone/
-│
-├── main.tf
-├── variables.tf
-├── outputs.tf
-├── providers.tf
-├── locals.tf
-│
-├── dev.tfvars
-├── staging.tfvars
-├── prod.tfvars
-│
-├── .gitignore
-│
-└── modules/
-    ├── vpc/
-    ├── security-group/
-    └── ec2-instance/
+  main.tf                   # Root module -- calls child modules
+  variables.tf              # Root variables
+  outputs.tf                # Root outputs
+  providers.tf              # AWS provider and backend
+  locals.tf                 # Local values using workspace
+  dev.tfvars                # Dev environment values
+  staging.tfvars            # Staging environment values
+  prod.tfvars               # Prod environment values
+  .gitignore                # Ignore state, .terraform, tfvars with secrets
+  modules/
+    vpc/
+      main.tf
+      variables.tf
+      outputs.tf
+    security-group/
+      main.tf
+      variables.tf
+      outputs.tf
+    ec2-instance/
+      main.tf
+      variables.tf
+      outputs.tf
+
 ```
 
 ---
