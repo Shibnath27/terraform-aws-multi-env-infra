@@ -1,5 +1,10 @@
 .terraform/
 *.tfstate
 *.tfstate.backup
-*.tfvars
+#*.tfvars
 .terraform.lock.hcl
+
+# Keep environment tfvars (IMPORTANT)
+!dev.tfvars
+!staging.tfvars
+!prod.tfvars
