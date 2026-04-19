@@ -18,6 +18,7 @@ variable "subnet_cidr" {
 
 variable "instance_type" {
   type = string
+  default = "t3.micro"
 }
 
 variable "ingress_ports" {
@@ -27,8 +28,8 @@ variable "ingress_ports" {
 
 
 # 🔥 SSH KEY
-variable "key_name" {
-  description = "EC2 SSH key pair name"
+variable "key_public_path" {
+  description = "Path to the public SSH key"
   type        = string
   default     = "terra-automate-key.pub"
 }

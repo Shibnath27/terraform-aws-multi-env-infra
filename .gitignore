@@ -8,3 +8,7 @@
 !dev.tfvars
 !staging.tfvars
 !prod.tfvars
+
+# Ignore private key files
+*.pem
+terra-automate-key

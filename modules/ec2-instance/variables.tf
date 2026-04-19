@@ -24,7 +24,7 @@ variable "env" {
   type        = string
 }
 
-variable "key_name" {
+variable "key_public_path" {
   description = "Path to the SSH public key file"
   type        = string
 }

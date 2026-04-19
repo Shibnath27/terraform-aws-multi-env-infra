@@ -9,6 +9,11 @@ data "aws_ami" "amazon_linux" {
   }
 }
 
+locals {
+  environment   = terraform.workspace
+  instance_name = "${var.project_name}-${local.environment}-instance"
+}
+
 # VPC Module
 module "vpc" {
   source = "./modules/vpc"
@@ -33,14 +38,16 @@ module "sg" {
 module "ec2" {
   source = "./modules/ec2-instance"
 
+  instance_name      = local.instance_name
+  key_public_path    = var.key_public_path
+  env                = terraform.workspace
+  key_name           = var.key_public_path != "" ? "${local.environment}-terra-automate-key" : null
   environment        = local.environment
   instance_count     = local.current.instance_count
   ami_id             = data.aws_ami.amazon_linux.id
   instance_type      = var.instance_type
   subnet_id          = module.vpc.subnet_id
   security_group_ids = [module.sg.sg_id]
-  key_name           = var.key_name
-  instance_name      = local.instance_name
   project_name       = var.project_name
   common_tags        = local.common_tags
 }

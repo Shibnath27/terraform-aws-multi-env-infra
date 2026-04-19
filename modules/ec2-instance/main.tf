@@ -26,5 +26,5 @@ resource "aws_instance" "this" {
 
 resource "aws_key_pair" "this" {
   key_name   = "${var.env}-terra-automate-key"
-  public_key = file(var.key_name)
+  public_key = file(var.key_public_path)
 }

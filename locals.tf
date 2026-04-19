@@ -1,7 +1,5 @@
 locals {
-  environment = terraform.workspace
-
-  config = {
+  env_config = {
     dev = {
       instance_count = 2
       bucket_count = 1
@@ -19,16 +17,12 @@ locals {
     }
   }
 
-  current = local.config[local.environment]
+  current = lookup(local.env_config, terraform.workspace, local.env_config["dev"])
 
-  name_prefix = "${var.project_name}-${local.environment}"
-
-  # Count-style naming
-  instance_name = "${local.name_prefix}-server"
 
   common_tags = {
     Project     = var.project_name
-    Environment = local.environment
+    Environment = terraform.workspace
     ManagedBy   = "Terraform"
   }
 }
