@@ -1,6 +1,10 @@
+resource "random_id" "rand" {
+  byte_length = 4
+}
+
 resource "aws_s3_bucket" "this" {
   count  = var.bucket_count
-  bucket = "${var.env}-terra-workspace-bucket-${count.index + 1}"
+  bucket = "${var.env}-bucket-${count.index + 1}-${random_id.rand.hex}"
 
   tags = merge(var.common_tags, {
     Name = "${var.env}-terra-workspace-bucket-${count.index + 1}"
