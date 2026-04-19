@@ -54,6 +54,12 @@ terraweek-capstone/
 
 ---
 
+## Flow Diagram 
+
+
+
+---
+
 ## ⚙️ Key Concepts Used
 
 ### 🔹 Terraform Workspaces
