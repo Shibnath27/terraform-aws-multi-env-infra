@@ -56,7 +56,7 @@ terraweek-capstone/
 
 ## Flow Diagram 
 
-
+<img width="1536" height="1024" alt="ChatGPT Image Apr 19, 2026, 02_17_02 PM" src="https://github.com/user-attachments/assets/7dc211f4-1300-45d1-9cd9-2f409257c396" />
 
 ---
 
