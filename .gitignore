@@ -11,4 +11,5 @@
 
 # Ignore private key files
 *.pem
+*.key
 terra-automate-key
