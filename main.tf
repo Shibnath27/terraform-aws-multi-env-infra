@@ -17,7 +17,7 @@ locals {
 # VPC Module
 module "vpc" {
   source = "./modules/vpc"
-
+  
   cidr               = var.vpc_cidr
   public_subnet_cidr = var.subnet_cidr
   environment        = local.environment
